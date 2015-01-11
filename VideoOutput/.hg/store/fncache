@@ -1,2 +1,9 @@
+data/HMC5883L-FDS.pdf.d
+data/PS-ITG-3200-00-01.4.pdf.d
+data/9DoF-Stick-v13.pdf.i
 data/main.cpp.i
+data/PS-ITG-3200-00-01.4.pdf.i
+data/HMC5883L-FDS.pdf.i
+data/ADXL345.pdf.i
+data/ADXL345.pdf.d
 data/mbed.bld.i
