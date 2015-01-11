@@ -27,14 +27,14 @@
 
 //Declare functions
 void init_adxl345(I2C i2c);
-void read_adxl345(I2C i2c);
+void read_adxl345(I2C i2c, int *data);
 void init_itg3200(I2C i2c);
-void read_itg3200(I2C i2c);
+void read_itg3200(I2C i2c, int *data);
 void init_hmc5883(I2C i2c);
-void read_hmc5883(I2C i2c);
+void read_hmc5883(I2C i2c, int *data);
 
 //This function initializes the Digital Accelerometer ADXL345
-char* init_adxl345(I2C i2c) {
+void init_adxl345(I2C i2c) {
     char data[2];
     data[0] = ADXL_REGISTER_PWRCTL;
     data[1] = ADXL_PWRCTL_MEASURE;
@@ -45,7 +45,7 @@ char* init_adxl345(I2C i2c) {
     i2c.read(ADXL345_ADDRESS_R, data, 2);
 }
 
-void read_adxl345(I2C i2c, int[] data) {
+void read_adxl345(I2C i2c, int *data) {
     char bytes[6];
     memset(bytes,0,6);
     bytes[0] = ADXL345_REGISTER_XLSB;
@@ -70,7 +70,7 @@ void init_itg3200(I2C i2c) {
     i2c.read(ITG3200_ADDRESS_R, data, 2);
 }
 
-void read_itg3200(I2C i2c, int[] data) {
+void read_itg3200(I2C i2c, int *data) {
     char bytes[6];
     memset(bytes,0,6);
     bytes[0] = ITG3200_REGISTER_XMSB;
@@ -92,7 +92,7 @@ void init_hmc5883(I2C i2c) {
     i2c.read(HMC5883_ADDRESS_R, data, 1);
 }
 
-void read_hmc5883(I2C i2c, int[] data) {
+void read_hmc5883(I2C i2c, int *data) {
     char bytes[6];
     memset(bytes,0,6);
     bytes[0] = HMC5883_REGISTER_XMSB;
